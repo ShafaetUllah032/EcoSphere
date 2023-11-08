@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+
+{% block title %} profile{% endblock %}
+
+
+{% block body %}
+
+<main role="main">
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/media/shop/images/pt1.jpg" alt="" width="335px" height="300px" class="rounded-circle"> 
+            </div>
+            <div class="col-md-6">
+                <h3>User Name : <span class="text-warning"> {{user.username}}  </span> </h3>
+                <h6>Email : <span class="text-info"> {{user.email}}  </span> </h6>
+                <h6>First Name : <span class="text-info"> {{user.first_name}}  </span> </h6>
+                <h6>Last Name : <span class="text-info"> {{user.last_name}}  </span> </h6>
+                <h6>Date joined : <span class="text-dark"> {{user.date_joined}}  </span> </h6>
+                <h6>Last login : <span class="text-dark"> {{user.last_login}}  </span> </h6>
+                </br>
+                <p>This is a template for a simple marketing  jumbotron and three supporting pieces of content supporting pieces of content. Use it as a starting point to create something more unique. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h5 align="center">Your orders </h5>
+        <div class="row row-cols-4 row-cols-md-1">
+                <div class="col my-2">
+                    <div class="card h-100 shadow pb-2 mb-2 bg-white rounded"> 
+                            <table class="table ">
+                                <tr>
+                                    <th>Order id</th>
+                                    <th>Order email</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
+                                </tr>
+                                {% for order in orders %}
+                                    {% if user.email == order.email or user.username == order.name  %}
+                                        <tr>
+                                            <td>{{order.order_id}}</td>
+                                            <td>{{order.email}}</td>
+                                            <td>{{order.amount}} tk</td>
+                                            <td><a class=" dropdown-toggle btn btn-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                Check 
+                                              </a>
+                                              <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown" >
+                                                <!-- category -->
+                                                {% for update in updates %}
+                                                    {% if order.order_id == update.order_id  %}
+                                                        <div class="d-flex  p-2">
+                                                            <a style="color:dark;">{{update.update_desc}}</a>
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                              </div>
+                                            </td>
+                                            <td><a href="/main/tracker/" class="btn btn-warning" ><b>Track</b></a></td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+<hr>
+
+</div> <!-- /container -->
+
+</main>
+
+
+{% endblock %}
+

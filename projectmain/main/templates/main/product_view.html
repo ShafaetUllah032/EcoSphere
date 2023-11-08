@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+
+{% block title %} {{product.name}} {% endblock %}
+
+{% block css %}
+
+    .product-view{
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container product-view">
+        <div class="row">
+            <div class="col-md-4 p-3">
+                <img src="/media/{{product.image}}" alt="" height="225px" width="260px" class="border border-warning"> 
+            </div>
+            <div class="col-md-6">
+                <h4 id="name_pr{{product.code}}" class="card-title text-warning">{{product.name}}</h4>
+                <p>{{product.desc}}</p>
+                <h5>Price: <span class="text-warning"> BDT. <span id="price_pr{{product.code}}">{{product.price}} </span></span> </h5>
+                <br>
+                <span id="div_pr{{product.code}}" class="div_pr">
+                    <button id="pr{{product.code}}" class="btn btn-warning cart">Add to cart</button>
+                </span>
+                <br>
+                <br>
+                <div class="fb-like bg-light" data-href="http://127.0.0.1:8000/main/products/{{product.id}}" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+                <div class="fb-comments bg-light" data-href="http://127.0.0.1:8000/main/products/{{product.id}}" data-width="" data-numposts="2"></div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'main/js/product_view.js' %}"></script>
+{% endblock %}  

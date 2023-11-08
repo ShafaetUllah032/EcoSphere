@@ -1,0 +1,87 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Contact Us {% endblock %}]
+
+{% load static %}
+
+{% block body %}
+
+  <div class="my-3">
+    <h3 align="center">Contact Us</h3>
+    <form action="/main/contact/" method="post" class="container w-50">{% csrf_token %}
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" Required>
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" Required>
+      </div>
+      <div class="form-group">
+        <label for="name">Phone</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number" Required>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+          <label for="desc">How can we help you ?</label>
+          <textarea class="form-control" id="desc" name="desc" rows="3" Required></textarea>
+        </div>
+
+        <div class="d-flex justify-content-center row">
+          <button type="submit" class="btn btn-warning col-3">Submit</button>
+        </div>
+    </form>
+    
+  </div>
+  <div class="container my-5">
+    <div class="row row-cols-2 row-cols-md-4">
+            <div class="col my-2">
+              <div class="card-body">
+                <h4 class="card-title text-dark" align="center">Phone</h4>
+                {% for phone in phones %}
+                  <h6 class="text-dark" align="center">{{phone}}</h6>
+                {% endfor %}
+              </div>
+            </div> 
+            <div class="col my-2">
+              <div class="card-body">
+                <h4 class="card-title text-dark" align="center">Emails</h4>
+                {% for email in emails %}
+                  <h6 class="text-dark" align="center">{{email}}</h6>
+                {% endfor %}
+              </div>
+            </div>  
+            <div class="col my-2">
+              <div class="card-body">
+                <h4 class="card-title text-dark" align="center">Addresses</h4>
+                {% for address in addresses %}
+                  <h6 class="text-dark" align="center">{{address}}</h6>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col my-2">
+              <div class="card-body">
+                <h4 class="card-title text-dark" align="center">Pages</h4>
+                {% for Cont_info in Cont_infos  %}
+                  <h6 class="text-dark" align="center"><a href="{{Cont_info.page}}" target="_blank">{{Cont_info.name}}</a></h6>
+                {% endfor %}
+              </div>
+            </div>  
+      </div>
+  </div>
+
+
+
+{% endblock %}
+
+
+{% block js%}
+
+  <script>
+    {% if thank %}
+      alert('Thanks for contacting us. You will get an E-mail soon');
+      document.location = "/main/contact";
+    {% endif %}
+  </script>
+
+{% endblock %}

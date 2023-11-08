@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title%} Mlapp{% endblock %}
+{% block body %}
+
+<main role="main" class="width:100%"></br>
+     <h2 align="center">These are the similar Product You Will love to see</h2>
+    <div class="container my-5">
+        
+        <div class="row">
+
+            <div class="col-md-12 w-100" style="margin-left:-80px">
+                <div class="container">
+        <div class="image-div d-flex" style="width:100%">
+            <div class="d-flex bg-info flex-column justify-content-center align-items-center border border-primary">
+                <img src="{% static '/' %}{{img1}}" alt="photo1" width="256px" height="256px">
+                <h4>Price - TBD</h4>
+            </div>
+            <div class="d-flex bg-info flex-column justify-content-center align-items-center border border-primary">
+                <img src="{% static '/' %}{{img2}}" alt="photo2" width="256px" height="256px">
+                <h4>Price - TBD</h4>
+            </div>
+            <div class="d-flex bg-info flex-column justify-content-center align-items-center border border-primary">
+                <img src="{% static '/' %}{{img3}}" alt="photo1" width="256px" height="256px">
+                <h4>Price - TBD</h4>
+            </div>
+            <div class="d-flex bg-info flex-column justify-content-center align-items-center border border-primary">
+                <img src="{% static '/' %}{{img4}}" alt="photo2" width="256px" height="256px">
+                <h4>Price - TBD</h4>
+            </div>
+            <div class="d-flex bg-info flex-column justify-content-center align-items-center border border-primary">
+                <img src="{% static '/' %}{{img5}}" alt="photo1" width="256px" height="256px">
+                <h4>Price - TBD</h4>
+            </div>
+
+<!--            <div class="d-flex flex-column justify-content-center align-items-center">-->
+<!--                <img src="{% static '/' %}{{img3}}" alt="photo3" width="256px" height="256px">-->
+<!--                <h4>Price - TBD</h4>-->
+<!--            </div>-->
+<!--            <div class="d-flex flex-column justify-content-center align-items-center">-->
+<!--                <img src="{% static '/' %}{{img4}}" alt="photo4" width="256px" height="256px">-->
+<!--                <h4>Price - TBD</h4>-->
+<!--            </div>-->
+<!--            <div class=d-flex flex-column justify-content-center align-items-center">-->
+<!--                <img src="{% static '/' %}{{img5}}" alt="photo5" width="256px" height="256px">-->
+<!--                <h4>Price - TBD</h4>-->
+<!--            </div>-->
+        </div>
+    </div>
+            </br>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center row">
+             <h3 align ="center">Here we are going to Recommend some of our own similar product . Quality and prize will be added soon. </h3>
+            <a href="/mlapp/mlapp" class="btn btn-warning mx-3 mt-4 "><b>Back to Recommendation</b></a>
+    </div>
+   </div>
+   
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  
+      <hr>
+  
+    </div> <!-- /container -->
+  
+  </main>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script></body>
+  </html>
+
+{% endblock %}

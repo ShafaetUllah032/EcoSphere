@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %} {{category.name}} {% endblock %}
+
+
+
+{% block body %}
+
+    <!-- Info of this category -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/media/{{caption.image}}" alt="" width="285px" height="285px" class="rounded-circle"> 
+            </div>
+            <div class="col-md-6">
+                <h3>{{caption.name}}</h3>
+                <p>{{caption.desc}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- All products of this category -->
+    <div class="container my-5">
+        <div class="row row-cols-2 row-cols-md-4">
+            {% for product in products %}
+                <div class="col my-2">
+                    <div class="card h-100 shadow pb-2 mb-2 bg-white rounded">
+                        <img src="/media/{{product.image}}" class="card-img-top h-50" alt="...">
+                        <div class="card-body">
+                            <h6 id="name_pr{{product.code}}" class="card-title text-warning">{{product.name}}</h6>
+                            <p class="card-text">{{product.desc|slice:"0:60"}}...</p>
+                            <h6 >BDT. <span id="price_pr{{product.code}}">{{product.price}}</span></h6>
+                            <span id="div_pr{{product.code}}" class="div_pr">
+                                <button id="pr{{product.code}}" class="btn btn-warning cart">Add to cart</button>
+                            </span>
+                            <a href="/main/dynamic_products/{{product.id}}">
+                                <button id="view_pr{{product.code}}" class="btn btn-outline-warning">View</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'main/js/category_view.js' %}"></script> <!--category_view and caption_view have common javascript codes-->
+{% endblock %}  

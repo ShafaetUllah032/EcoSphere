@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title%} Order Tracker{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="col my-4">
+        <h2>Enter your Order Id and Email address to track your order</h2>
+        <form method="post" action="#" id="trackerForm">{% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputname">Order Id</label>
+                    <input type="text" class="form-control" id="orderId" name="orderId" placeholder="Order Id">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-primary">Track Order</button>
+            </div>
+        </form>
+    </div>
+    <div class="col my-4">
+        <h2>Your Order Status</h2>
+        <div class="my-4">
+            <ul class="list-group" id="items">
+            	Enter your order Id and Email and click Track Order to find details about your order!
+                <!-- Order status/history will be shown here -->
+            </ul>
+        </div>
+    </div>
+    <div class="col my-4">
+        <h2>Your Order Details</h2>
+        <div class="my-4">
+            <ul class="list-group mb-3" id="citems">
+            	<!-- cart items will be shown here -->
+            </ul>
+            <h6><span id="amount"></span></h6>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+
+    <script src="{% static 'main/js/tracker.js' %}"></script>
+
+{% endblock %}
