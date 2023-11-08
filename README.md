@@ -13,7 +13,7 @@ EcoSphere is an advanced ecommerce website designed to offer an unparalleled sho
 3. **Visual Search and Fashion Recommendations**
    - EcoSphere makes shopping more intuitive with its image-based search. Users can upload an image, and the system provides immediate updates on similar products in our store. Additionally, our intelligent algorithms curate and recommend exact or similar fashion items based on users' preferences.
 
-## Getting Started
-To get started with EcoSphere, follow these steps:
+## NB
+Some large file have been removed, if need then :
 
-1. **Clone the Repository:**
+mail to "shafetullah02@gmail.com"
